@@ -25,19 +25,19 @@
 <component-set>
   <components>
     <component>
-      <role>org.codehaus.mojo.unix.core.UnixPlatform</role>
+      <role>com.stratio.mojo.unix.core.UnixPlatform</role>
       <role-hint>solaris</role-hint>
-      <implementation>org.codehaus.mojo.unix.core.SolarisUnixPlatform</implementation>
+      <implementation>com.stratio.mojo.unix.core.SolarisUnixPlatform</implementation>
     </component>
     <component>
-      <role>org.codehaus.mojo.unix.core.UnixPlatform</role>
+      <role>com.stratio.mojo.unix.core.UnixPlatform</role>
       <role-hint>linux</role-hint>
-      <implementation>org.codehaus.mojo.unix.core.LinuxUnixPlatform</implementation>
+      <implementation>com.stratio.mojo.unix.core.LinuxUnixPlatform</implementation>
     </component>
     <component>
-      <role>org.codehaus.mojo.unix.core.UnixPlatform</role>
+      <role>com.stratio.mojo.unix.core.UnixPlatform</role>
       <role-hint>generic</role-hint>
-      <implementation>org.codehaus.mojo.unix.core.LinuxUnixPlatform</implementation>
+      <implementation>com.stratio.mojo.unix.core.LinuxUnixPlatform</implementation>
     </component>
   </components>
 </component-set>
