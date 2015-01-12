@@ -37,6 +37,7 @@ import org.joda.time.format.*;
 
 import java.io.*;
 import java.text.*;
+import java.util.Locale;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
@@ -55,7 +56,8 @@ public class PkgchkUtil
         appendSecondOfMinute( 2 ).
         appendLiteral( ' ' ).
         appendYear( 4, 4 ).
-        toFormatter();
+        toFormatter().
+        withLocale(Locale.ENGLISH);
 
     public static final F<LocalDateTime, String> formatter = curry( UnixUtil.formatLocalDateTime, FORMAT );
 
