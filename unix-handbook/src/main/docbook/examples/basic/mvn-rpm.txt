@@ -15,8 +15,8 @@
 [INFO] Using "/tmp/vfs_cache" as temporary files store.
 [INFO]
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ basic ---
-[INFO] Installing ~/unix/unix-handbook/src/main/docbook/examples/basic/target/basic-1.0-SNAPSHOT.rpm to ~/.m2/repository/org/codehaus/mojo/unix/example/basic/1.0-SNAPSHOT/basic-1.0-SNAPSHOT.rpm
-[INFO] Installing ~/unix/unix-handbook/src/main/docbook/examples/basic/pom-rpm.xml to ~/.m2/repository/org/codehaus/mojo/unix/example/basic/1.0-SNAPSHOT/basic-1.0-SNAPSHOT.pom
+[INFO] Installing ~/unix/unix-handbook/src/main/docbook/examples/basic/target/basic-1.0-SNAPSHOT.rpm to ~/.m2/repository/com.stratio.mojo.unix/example/basic/1.0-SNAPSHOT/basic-1.0-SNAPSHOT.rpm
+[INFO] Installing ~/unix/unix-handbook/src/main/docbook/examples/basic/pom-rpm.xml to ~/.m2/repository/com.stratio.mojo.unix/example/basic/1.0-SNAPSHOT/basic-1.0-SNAPSHOT.pom
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------

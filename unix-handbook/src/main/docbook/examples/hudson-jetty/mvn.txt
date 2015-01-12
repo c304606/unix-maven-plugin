@@ -280,7 +280,7 @@ pkgtrans output:
 Transferring <hudson-jetty-pkg> package instance
 
 [INFO] [install:install]
-[INFO] Installing /home/trygvis/dev/org.codehaus.mojo/trunk/mojo/unix/src/examples/hudson-jetty-pkg/target/hudson-jetty-pkg-1.0-SNAPSHOT.pkg to /home/trygvis/.m2/repository/org/codehaus/mojo/unix/example/hudson-jetty-pkg/1.0-SNAPSHOT/hudson-jetty-pkg-1.0-SNAPSHOT.pkg
+[INFO] Installing /home/trygvis/dev/org.codehaus.mojo/trunk/mojo/unix/src/examples/hudson-jetty-pkg/target/hudson-jetty-pkg-1.0-SNAPSHOT.pkg to /home/trygvis/.m2/repository/com.stratio.mojo.unix/example/hudson-jetty-pkg/1.0-SNAPSHOT/hudson-jetty-pkg-1.0-SNAPSHOT.pkg
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESSFUL
 [INFO] ------------------------------------------------------------------------

@@ -1,24 +1,24 @@
 import static fj.data.Option.none;
-import org.codehaus.mojo.unix.FileAttributes
-import org.codehaus.mojo.unix.UnixFileMode
-import static org.codehaus.mojo.unix.UnixFileMode.fromInt
-import static org.codehaus.mojo.unix.UnixFileMode.fromString
-import static org.codehaus.mojo.unix.UnixFsObject.directory
-import static org.codehaus.mojo.unix.UnixFsObject.regularFile
-import org.codehaus.mojo.unix.deb.DpkgDeb
-import org.codehaus.mojo.unix.deb.DpkgDebUtil
-import org.codehaus.mojo.unix.deb.DpkgDebUtil.ControlFile
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertDebEntries
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertFormat
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertPkgEntries
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertRelaxed
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.r
-import org.codehaus.mojo.unix.sysvpkg.PkginfoUtil
-import org.codehaus.mojo.unix.sysvpkg.PkginfoCommand
-import org.codehaus.mojo.unix.sysvpkg.PkginfoUtil.PackageInfo
-import org.codehaus.mojo.unix.rpm.RpmUtil
-import org.codehaus.mojo.unix.rpm.RpmUtil.SpecFile
-import org.codehaus.mojo.unix.rpm.Rpmbuild
+import com.stratio.mojo.unix.FileAttributes
+import com.stratio.mojo.unix.UnixFileMode
+import static com.stratio.mojo.unix.UnixFileMode.fromInt
+import static com.stratio.mojo.unix.UnixFileMode.fromString
+import static com.stratio.mojo.unix.UnixFsObject.directory
+import static com.stratio.mojo.unix.UnixFsObject.regularFile
+import com.stratio.mojo.unix.deb.DpkgDeb
+import com.stratio.mojo.unix.deb.DpkgDebUtil
+import com.stratio.mojo.unix.deb.DpkgDebUtil.ControlFile
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertDebEntries
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertFormat
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertPkgEntries
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertRelaxed
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.r
+import com.stratio.mojo.unix.sysvpkg.PkginfoUtil
+import com.stratio.mojo.unix.sysvpkg.PkginfoCommand
+import com.stratio.mojo.unix.sysvpkg.PkginfoUtil.PackageInfo
+import com.stratio.mojo.unix.rpm.RpmUtil
+import com.stratio.mojo.unix.rpm.RpmUtil.SpecFile
+import com.stratio.mojo.unix.rpm.Rpmbuild
 
 boolean success = true
 

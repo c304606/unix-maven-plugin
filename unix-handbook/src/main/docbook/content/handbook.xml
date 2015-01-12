@@ -781,7 +781,7 @@
       </warning>
 
       <tip>
-        <para>For more information see the class org.codehaus.mojo.unix.PackageParameters.</para>
+        <para>For more information see the class com.stratio.mojo.unix.PackageParameters.</para>
       </tip>
 
       <para>In addition to the generic object, additional information is
@@ -895,7 +895,7 @@
 
         <tip>
           <para>This information is derived from <link
-          xlink:href="http://mojo.codehaus.org/unix/xref-test/org/codehaus/mojo/unix/maven/core/VersionTest.html">org.codehaus.mojo.unix.maven.core.VersionTest</link>.</para>
+          xlink:href="http://mojo.codehaus.org/unix/xref-test/com.stratio.mojo.unix/maven/core/VersionTest.html">com.stratio.mojo.unix.maven.core.VersionTest</link>.</para>
         </tip>
 
         <para>When the plugin is creating a unix package it also create a
