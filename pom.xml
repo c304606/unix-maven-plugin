@@ -29,7 +29,7 @@
     <artifactId>mojo-parent</artifactId>
     <version>31</version>
   </parent>
-  <groupId>org.codehaus.mojo.unix</groupId>
+  <groupId>com.stratio.mojo.unix</groupId>
   <artifactId>unix</artifactId>
   <version>1.0-alpha-7-SNAPSHOT</version>
   <packaging>pom</packaging>
