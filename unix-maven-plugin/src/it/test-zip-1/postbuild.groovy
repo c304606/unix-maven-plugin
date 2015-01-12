@@ -1,9 +1,9 @@
-import org.codehaus.mojo.unix.maven.plugin.Timestamps
+import com.stratio.mojo.unix.maven.plugin.Timestamps
 
-import static org.codehaus.mojo.unix.FileAttributes.EMPTY
-import static org.codehaus.mojo.unix.UnixFsObject.directory
-import static org.codehaus.mojo.unix.UnixFsObject.regularFile
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.*
+import static com.stratio.mojo.unix.FileAttributes.EMPTY
+import static com.stratio.mojo.unix.UnixFsObject.directory
+import static com.stratio.mojo.unix.UnixFsObject.regularFile
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.*
 
 boolean success = true
 

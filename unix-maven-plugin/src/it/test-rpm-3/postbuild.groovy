@@ -1,6 +1,6 @@
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.*
-import org.codehaus.mojo.unix.rpm.RpmUtil
-import org.codehaus.mojo.unix.rpm.SpecFile
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.*
+import com.stratio.mojo.unix.rpm.RpmUtil
+import com.stratio.mojo.unix.rpm.SpecFile
 
 boolean success = true
 

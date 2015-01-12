@@ -1,14 +1,14 @@
 import static fj.data.Option.none
 import static fj.data.Option.some
-import org.codehaus.mojo.unix.FileAttributes
-import static org.codehaus.mojo.unix.UnixFileMode.fromString
-import org.codehaus.mojo.unix.UnixFsObject
-import static org.codehaus.mojo.unix.UnixFsObject.directory
-import static org.codehaus.mojo.unix.UnixFsObject.regularFile
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.START_OF_TIME
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertDebEntries
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.assertFormat
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.r
+import com.stratio.mojo.unix.FileAttributes
+import static com.stratio.mojo.unix.UnixFileMode.fromString
+import com.stratio.mojo.unix.UnixFsObject
+import static com.stratio.mojo.unix.UnixFsObject.directory
+import static com.stratio.mojo.unix.UnixFsObject.regularFile
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.START_OF_TIME
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertDebEntries
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.assertFormat
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.r
 
 boolean success = true
 

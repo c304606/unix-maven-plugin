@@ -1,7 +1,7 @@
 import static fj.data.Option.none
-import org.codehaus.mojo.unix.maven.*
-import org.codehaus.mojo.unix.sysvpkg.*
-import org.codehaus.mojo.unix.sysvpkg.PkginfoUtil.PackageInfo
+import com.stratio.mojo.unix.maven.*
+import com.stratio.mojo.unix.sysvpkg.*
+import com.stratio.mojo.unix.sysvpkg.PkginfoUtil.PackageInfo
 
 String userHome = System.getProperty("user.home")
 File jar = new File(userHome, ".m2/repository/bar/project-uber-1/1.1-2/project-uber-1-1.1-2.jar")

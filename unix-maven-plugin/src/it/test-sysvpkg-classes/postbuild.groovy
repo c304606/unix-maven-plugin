@@ -1,9 +1,9 @@
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.*
-import static org.codehaus.mojo.unix.sysvpkg.PkgchkUtil.*
-import org.codehaus.mojo.unix.sysvpkg.PkginfoUtil
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.*
+import static com.stratio.mojo.unix.sysvpkg.PkgchkUtil.*
+import com.stratio.mojo.unix.sysvpkg.PkginfoUtil
 import fj.data.Option
 import org.joda.time.LocalDateTime
-import org.codehaus.mojo.unix.sysvpkg.Pkginfo;
+import com.stratio.mojo.unix.sysvpkg.Pkginfo;
 
 Option<LocalDateTime> ldtNone = Option.none()
 

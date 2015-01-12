@@ -1,6 +1,6 @@
-import static org.codehaus.mojo.unix.maven.plugin.ShittyUtil.*
-import static org.codehaus.mojo.unix.FileAttributes.*
-import static org.codehaus.mojo.unix.UnixFsObject.*
+import static com.stratio.mojo.unix.maven.plugin.ShittyUtil.*
+import static com.stratio.mojo.unix.FileAttributes.*
+import static com.stratio.mojo.unix.UnixFsObject.*
 import org.joda.time.*;
 
 boolean success = true
