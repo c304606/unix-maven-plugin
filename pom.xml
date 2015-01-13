@@ -168,9 +168,9 @@
     <module>unix-rpm</module>
   </modules>
   <scm>
-    <url>http://git.codehaus.org/gitweb.cgi?p=mojo-unix.git</url>
-    <connection>scm:git:git://git.codehaus.org/mojo-unix.git</connection>
-    <developerConnection>scm:git:ssh://git@git.codehaus.org/mojo-unix.git</developerConnection>
+    <url>https://github.com/Stratio/unix-maven-plugin/</url>
+    <connection>scm:git:git://github.com/Stratio/unix-maven-plugin.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com:Stratio/unix-maven-plugin.git</developerConnection>
   </scm>
   <reporting>
     <plugins>
