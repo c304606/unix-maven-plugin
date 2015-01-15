@@ -114,13 +114,13 @@ public abstract class AbstractUnixMojo
     // -----------------------------------------------------------------------
 
     /**
-     * @parameter property="project"
+     * @parameter default-value="${project}"
      * @readonly
      */
     protected MavenProject project;
 
     /**
-     * @parameter property="session"
+     * @parameter default-value="${session}"
      * @readonly
      */
     protected ThreadLocal<MavenSession> session = new ThreadLocal<MavenSession>();
