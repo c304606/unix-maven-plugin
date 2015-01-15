@@ -27,7 +27,7 @@
   <parent>
     <groupId>com.stratio.mojo.unix</groupId>
     <artifactId>unix</artifactId>
-    <version>1.0-alpha-8</version>
+    <version>1.0-SNAPSHOT</version>
   </parent>
   <artifactId>unix-rpm</artifactId>
   <name>Maven RPM Support</name>
