@@ -42,13 +42,14 @@
     <version.maven-javadoc-plugin>2.7</version.maven-javadoc-plugin>
     <version.maven-dependency-plugin>2.7</version.maven-dependency-plugin>
     <version.commons-compress>1.4.1</version.commons-compress>
+    <version.joda-time>2.7</version.joda-time>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
-        <version>1.6</version>
+        <version>${version.joda-time}</version>
       </dependency>
       <dependency>
         <groupId>org.apache.maven</groupId>
