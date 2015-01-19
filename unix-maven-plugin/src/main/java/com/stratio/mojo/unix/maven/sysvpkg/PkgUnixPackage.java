@@ -212,14 +212,14 @@ public class PkgUnixPackage
     {
         String version = v.version;
 
-        if ( v.revision.isSome() )
-        {
-            version += "-" + v.revision.some();
-        }
-
         if ( v.snapshot )
         {
             version += "-" + v.timestamp;
+        }
+
+        if ( v.revision.isSome() )
+        {
+            version += "-" + v.revision.some();
         }
 
         return version;

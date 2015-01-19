@@ -39,7 +39,7 @@ public class PackageVersionTest
 
     public void testReleaseVersionWithEmbeddedRevision()
     {
-        assertVersion( "1.0", "20080703.084400", some( "1" ), "1.0-1",
+        assertVersion( "1.0-1", "20080703.084400", noneS, "1.0-1",
                        packageVersion( "1.0-1", "20080703.084400", false, noneS ) );
     }
 
@@ -57,7 +57,7 @@ public class PackageVersionTest
 
     public void testSnapshotVersionWithEmbeddedRevision()
     {
-        assertVersion( "1.0", "20080703.084400", some( "1" ), "1.0-1-SNAPSHOT",
+        assertVersion( "1.0-1", "20080703.084400", noneS, "1.0-1-SNAPSHOT",
                        packageVersion( "1.0-1-SNAPSHOT", "20080703.084400", true, noneS ) );
     }
 
@@ -77,14 +77,14 @@ public class PackageVersionTest
     public void testRevision()
         throws Exception
     {
-        assertVersion( "1.0", "20080703.084400", some( "2" ), "1.0-2",
+        assertVersion( "1.0-2", "20080703.084400", noneS, "1.0-2",
                        packageVersion( "1.0-2", "20080703.084400", false, noneS ) );
 
-        assertVersion( "1.0-alpha", "20080703.084400", some( "2" ), "1.0-alpha-2-SNAPSHOT",
+        assertVersion( "1.0-alpha-2", "20080703.084400", noneS, "1.0-alpha-2-SNAPSHOT",
                        packageVersion( "1.0-alpha-2-SNAPSHOT", "20080703.084400", true, noneS ) );
 
         // Hm, should this be allowed? Creating non-snapshot artifacts from snapshot artifacts.
-        assertVersion( "1.0", "20080703.084400", some( "2" ), "1.0-2-SNAPSHOT",
+        assertVersion( "1.0-2", "20080703.084400", noneS, "1.0-2-SNAPSHOT",
                        packageVersion( "1.0-2-SNAPSHOT", "20080703.084400", true, noneS ) );
     }
 

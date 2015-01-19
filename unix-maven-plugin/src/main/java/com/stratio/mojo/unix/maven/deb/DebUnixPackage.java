@@ -270,18 +270,20 @@ public class DebUnixPackage
     public static String getDebianVersion( PackageVersion version )
     {
         String v = version.version;
+        String r = version.revision.orSome("1");
 
-        if ( version.revision.isSome() )
-        {
-            // It is assumed that this is validated elsewhere (in the deb mojo helper to be specific)
-            v += "-" + version.revision.some();
+        // Map Maven qualifiers (e.g. -rc1, -alpha-1) to use tilde (e.g. ~rc1, ~alpha-1).
+        // This is required to preserve the expected version ordering.
+        int index = v.indexOf('-');
+        if (index != -1 && index < v.length() - 1 && Character.isLetter(v.charAt(index + 1))) {
+             v = v.replaceFirst("-", "~");
         }
 
         if ( !version.snapshot )
         {
-            return v;
+            return v + "-" + r;
         }
 
-        return v + "-" + version.timestamp;
+        return v + "~" + version.timestamp + "-" + r;
     }
 }

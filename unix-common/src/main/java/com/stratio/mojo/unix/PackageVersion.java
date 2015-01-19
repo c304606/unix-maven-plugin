@@ -29,6 +29,9 @@ import static fj.data.Option.*;
 import static com.stratio.mojo.unix.util.Validate.*;
 
 /**
+ * Represents a package version as defined in Maven. Each packaging format
+ * might need later conversion to platform-specific versioning.
+ *
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  */
 public final class PackageVersion
@@ -88,15 +91,7 @@ public final class PackageVersion
             }
         }
 
-        int index = version.lastIndexOf( '-' );
-
-        if ( index != -1 )
-        {
-            return new PackageVersion( version.substring( 0, index ), timestamp, snapshot,
-                                       some( version.substring( index + 1 ) ) );
-        }
-
-        return new PackageVersion( version, timestamp, snapshot, Option.<String>none() );
+        return new PackageVersion( version( snapshot, mavenVersion ), timestamp, snapshot, Option.<String>none() );
     }
 
     public String getMavenVersion()
