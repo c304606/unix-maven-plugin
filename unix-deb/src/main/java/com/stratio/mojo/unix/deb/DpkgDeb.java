@@ -97,6 +97,7 @@ public class DpkgDeb
             withIgnoringStderrUnless( debug ).
             withIgnoringStdoutUnless( debug ).
             addArgumentIf( useFakeroot, dpkgDeb() ).
+            addArgument( "-Zgzip" ).
             addArgument( "-b" ).
             addArgument( packageRoot.getAbsolutePath() ).
             addArgument( debFile.getAbsolutePath() ).
