@@ -274,7 +274,7 @@ public class DebUnixPackage
         if ( version.revision.isSome() )
         {
             // It is assumed that this is validated elsewhere (in the deb mojo helper to be specific)
-            v += "-" + Integer.parseInt( version.revision.some() );
+            v += "-" + version.revision.some();
         }
 
         if ( !version.snapshot )
