@@ -41,7 +41,7 @@
     <version.maven-apis>3.0</version.maven-apis>
     <version.maven-javadoc-plugin>2.7</version.maven-javadoc-plugin>
     <version.maven-dependency-plugin>2.7</version.maven-dependency-plugin>
-    <version.commons-compress>1.4.1</version.commons-compress>
+    <version.commons-compress>1.9</version.commons-compress>
     <version.joda-time>2.7</version.joda-time>
   </properties>
   <dependencyManagement>
