@@ -28,8 +28,8 @@ success &= assertRpmEntries(rpm, [
 
 specFile = new SpecFile()
 specFile.name = "project-rpm-1"
-specFile.version = "1.1"
-specFile.release = 2
+specFile.version = "1.1_2"
+specFile.release = 1
 specFile.summary = "RPM 1"
 specFile.license = "BSD"
 specFile.group = "Application/Collectors"

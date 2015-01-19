@@ -25,7 +25,7 @@ success &= assertSysvPkgEntries(pkg, [
         directory("/usr", "17777777777", "?", "?", ldtNone),
         directory("/usr/share", "0755", "nobody", "nogroup", ldtNone),
         directory("/usr/share/hudson", "0755", "nobody", "nogroup", ldtNone),
-        regularFile("/usr/share/hudson/README.txt", "0644", "nobody", "nogroup", 38, 3568, ldtNone),
+        regularFile("/usr/share/hudson/README.txt", "0644", "nobody", "nogroup", 41, 3746, ldtNone),
         directory("/var", "17777777777", "?", "?", ldtNone),
         directory("/var/log", "0755", "nobody", "nogroup", ldtNone),
         symlink("/var/log/hudson", "/var/opt/hudson/log"),
@@ -33,7 +33,7 @@ success &= assertSysvPkgEntries(pkg, [
         installationFile("compver", 0, 0, ldtNone),
         installationFile("copyright", 24, 2150, ldtNone),
         installationFile("depend", 0, 0, ldtNone),
-        installationFile("pkginfo", 151, 0, ldtNone),
+        installationFile("pkginfo", 157, 0, ldtNone),
         installationFile("request", 46, 4055, ldtNone),
         installationFile("space", 0, 0, ldtNone),
 ])

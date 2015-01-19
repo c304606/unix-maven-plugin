@@ -35,7 +35,7 @@ success &= assertSysvPkgEntries(main, [
         directory("/usr/share/hudson/server", "0755", "root", "bin", ldtNone),
         regularFile("/usr/share/hudson/server/README.txt", "0644", "hudson", "hudson", 35, 3223, ldtNone),
 //        new PkgchkUtil.RegularFile("/usr/share/hudson/server/README.txt", "0644", "root", "bin", 1544, 59072, null),
-        installationFile("pkginfo", 154, 0, ldtNone),
+        installationFile("pkginfo", 160, 0, ldtNone),
         installationFile("postinstall", 36+38, 0, ldtNone),
 ])
 
@@ -61,7 +61,7 @@ success &= assertSysvPkgEntries(slave, [
         regularFile("/usr/share/hudson/LICENSE-downstream.txt", "0644", "nobody", "nogroup", 15, 1367, ldtNone),
         directory("/usr/share/hudson/slave", "0755", "root", "bin", ldtNone),
         regularFile("/usr/share/hudson/slave/README.txt", "0644", "nobody", "nogroup", 34, 3099, ldtNone),
-        installationFile("pkginfo", 176, 0, ldtNone),
+        installationFile("pkginfo", 182, 0, ldtNone),
         installationFile("postinstall", 36+37, 0, ldtNone),
 ])
 

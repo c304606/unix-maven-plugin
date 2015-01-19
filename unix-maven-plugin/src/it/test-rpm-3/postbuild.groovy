@@ -22,8 +22,8 @@ success &= assertRpmEntries(main, [
 
 specFile = new SpecFile()
 specFile.name = "project-rpm-3"
-specFile.version = "1.1"
-specFile.release = 2
+specFile.version = "1.1_2"
+specFile.release = 1
 specFile.summary = "Hudson Master"
 specFile.license = "BSD"
 specFile.group = "Application/Collectors"
@@ -47,8 +47,8 @@ success &= assertRpmEntries(slave, [
 
 specFile = new SpecFile()
 specFile.name = "project-rpm-3-slave"
-specFile.version = "1.1"
-specFile.release = 2
+specFile.version = "1.1_2"
+specFile.release = 1
 specFile.summary = "Hudson Slave"
 specFile.license = "BSD"
 specFile.group = "Application/Collectors"

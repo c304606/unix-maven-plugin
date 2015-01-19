@@ -24,7 +24,7 @@ success &= assertSysvPkgEntries(pkg, [
         directory("/var/lib", "0755", "nobody", "nogroup", ldtNone),
         regularFile("/var/lib/app-method", "0644", "nobody", "nogroup", 30, 2290, ldtNone),
         regularFile("/var/lib/app-manifest.xml", "0644", "nobody", "nogroup", 36, 3285, ldtNone),
-        installationFile("pkginfo", 155, 0, ldtNone),
+        installationFile("pkginfo", 161, 0, ldtNone),
 ])
 
 return success

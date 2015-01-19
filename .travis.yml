@@ -12,11 +12,16 @@ env:
 
 before_install:
  - sudo apt-get update -qq
- - sudo apt-get install -qq rpm
+ - sudo apt-get install -qq rpm alien
+ # Heirloom Packaging Tools provide pkgmk and pkginfo needed for sysv pkg integration tests
+ - wget http://koji.spacewalkproject.org/packages/heirloom-pkgtools/1.070227/6.el6/x86_64/heirloom-pkgtools-1.070227-6.el6.x86_64.rpm
+ - sudo alien heirloom-pkgtools-1.070227-6.el6.x86_64.rpm
+ - sudo dpkg -i heirloom-pkgtools_1.070227-7_amd64.deb 
+ - sudo chown -R ${USER} /var/sadm
 
 install: "mvn install -DskipTests -U -B"
 
-script: "mvn install -U -B -Pintegration-tests -Dinvoker.test=test-zip-*/pom4test.xml,test-deb-*/pom4test.xml,test-rpm-*/pom4test.xml -Dinvoker.noLog=true"
+script: "mvn install -U -B -Pintegration-tests -Dinvoker.noLog=true"
 
 after_success:
   - python .travis-addServer.py

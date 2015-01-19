@@ -24,6 +24,6 @@ success &= assertSysvPkgEntries(pkg, [
         directory("/usr/share/hudson/license", "0755", "nobody", "nogroup", ldtNone),
         regularFile("/usr/share/hudson/license/atom-license.txt", "0644", "nobody", "nogroup", 49, 4473, ldtNone),
         regularFile("/usr/share/hudson/license/dc-license.txt", "0644", "nobody", "nogroup", 1544, 59072, ldtNone),
-        installationFile("pkginfo", 153, 0, ldtNone),
+        installationFile("pkginfo", 159, 0, ldtNone),
 ])
 return success
