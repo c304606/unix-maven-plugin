@@ -198,13 +198,34 @@ public class RpmUnixPackage
 
     public static P2<String, String> getRpmVersion( PackageVersion version )
     {
-        String rpmVersionString = version.version;
+        String v = version.version;
 
-        if ( version.snapshot )
+        String calculatedRevision = "1";
+
+        int index = v.indexOf("-");
+        if ( index != -1 && index < v.length() -1 && Character.isLetter(v.charAt(index + 1)) )
         {
-            rpmVersionString += "_" + version.timestamp;
+            calculatedRevision = "0.1." + v.substring(index + 1).replace("-", "_");
+            v = v.substring(0, index);
+        }
+        else if ( version.snapshot )
+        {
+            calculatedRevision = "0.1." + version.timestamp;
         }
 
-        return p( rpmVersionString.replace( '-', '_' ), version.revision.orSome( "1" ) );
+        String r = calculatedRevision;
+        if ( version.revision.isSome() )
+        {
+            if ( calculatedRevision.equals("1") )
+            {
+                r = version.revision.some();
+            }
+            else
+            {
+                r = calculatedRevision + "." + version.revision.some();
+            }
+        }
+
+        return p(v.replace('-', '_'), r);
     }
 }
