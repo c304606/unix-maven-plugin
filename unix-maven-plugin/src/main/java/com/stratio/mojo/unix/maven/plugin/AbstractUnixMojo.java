@@ -69,7 +69,7 @@ public abstract class AbstractUnixMojo
     /**
      * One-line description of the package.
      *
-     * @parameter property="project.description"
+     * @parameter
      */
     protected String description;
 
