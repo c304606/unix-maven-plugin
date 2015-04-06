@@ -24,23 +24,27 @@
  * SOFTWARE.
  */
 
-import fj.data.*;
-import static fj.data.Option.*;
-import static java.util.Collections.*;
-import org.apache.maven.artifact.*;
-import org.apache.maven.execution.*;
-import org.apache.maven.model.*;
-import org.apache.maven.project.*;
-import static com.stratio.mojo.unix.util.Validate.*;
-import org.joda.time.*;
+import static com.stratio.mojo.unix.util.Validate.validateNotNull;
+import static fj.data.Option.fromNull;
+import static java.util.Collections.unmodifiableSortedMap;
 
-import java.io.*;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
-import java.util.*;
-import java.util.Map.*;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Properties;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
+
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.execution.MavenSession;
+import org.apache.maven.model.License;
+import org.apache.maven.project.MavenProject;
+import org.joda.time.LocalDateTime;
+
+import fj.data.Option;
 
 /**
  * A small wrapper around a MavenProject instance to make testing easier.
@@ -74,10 +78,12 @@ public class MavenProjectWrapper
     public final ArtifactMap artifactMap;
 
     public final SortedMap<String, String> properties;
+    
+    public final String outputFileName;
 
-    public MavenProjectWrapper( String groupId, String artifactId, String version, Artifact artifact, String name,
-                                String description, File basedir, File buildDirectory, LocalDateTime timestamp,
-                                Set<Artifact> artifacts, List<License> licenses, ArtifactMap artifactMap,
+    public MavenProjectWrapper( String groupId, String artifactId, String outputFileName,String version, 
+            Artifact artifact,  String name, String description, File basedir, File buildDirectory, 
+            LocalDateTime timestamp, Set<Artifact> artifacts, List<License> licenses, ArtifactMap artifactMap,
                                 SortedMap<String, String> properties )
     {
         validateNotNull( groupId, artifactId, version, name );
@@ -94,6 +100,7 @@ public class MavenProjectWrapper
         this.licenses = licenses;
         this.artifactMap = artifactMap;
         this.properties = properties;
+        this.outputFileName= outputFileName==null?artifactId:outputFileName;
     }
 
     public static MavenProjectWrapper mavenProjectWrapper( final MavenProject project, MavenSession session )
@@ -117,8 +124,13 @@ public class MavenProjectWrapper
         properties.put( "project.groupId", project.getGroupId() );
         properties.put( "project.artifactId", project.getArtifactId() );
         properties.put( "project.version", project.getVersion() );
+        if(project.getProperties().getProperty("outputFileName")!=null){
+            properties.put( "project.ouputFileName",
+                    project.getProperties().getProperty("outputFileName"));
+        }
 
-        return new MavenProjectWrapper( project.getGroupId(), project.getArtifactId(), project.getVersion(),
+        return new MavenProjectWrapper( project.getGroupId(), project.getArtifactId(), 
+                project.getProperties().getProperty("outputFileName"), project.getVersion(),
                                         project.getArtifact(), project.getName(), project.getDescription(),
                                         project.getBasedir(), new File( project.getBuild().getDirectory() ),
                                         new LocalDateTime(), project.getArtifacts(), project.getLicenses(),

@@ -24,39 +24,63 @@
  * SOFTWARE.
  */
 
-import fj.*;
-import static fj.Function.*;
-import static fj.Ord.*;
-import static fj.P.*;
-import fj.data.List;
+import static com.stratio.mojo.unix.PackageParameters.packageParameters;
+import static com.stratio.mojo.unix.java.StringF.concat;
+import static com.stratio.mojo.unix.util.FileModulator.modulatePath;
+import static fj.Function.curry;
+import static fj.Ord.stringOrd;
+import static fj.P.p;
 import static fj.data.List.join;
-import static fj.data.List.*;
+import static fj.data.List.nil;
 import static fj.data.List.single;
-import fj.data.*;
-import static fj.data.Option.*;
-import fj.data.Set;
-import static fj.data.Set.*;
-import static java.lang.String.*;
-import org.apache.maven.artifact.*;
-import org.apache.maven.plugin.*;
-import org.apache.maven.plugin.logging.Log;
-import org.apache.maven.project.*;
-import com.stratio.mojo.unix.*;
-import static com.stratio.mojo.unix.PackageParameters.*;
-import com.stratio.mojo.unix.core.*;
-import com.stratio.mojo.unix.io.fs.*;
-import com.stratio.mojo.unix.java.*;
-import static com.stratio.mojo.unix.java.StringF.*;
-import com.stratio.mojo.unix.maven.plugin.*;
-import com.stratio.mojo.unix.maven.plugin.Package;
-import static com.stratio.mojo.unix.util.FileModulator.*;
-import com.stratio.mojo.unix.util.*;
-import com.stratio.mojo.unix.util.line.*;
+import static fj.data.Option.none;
+import static fj.data.Option.some;
+import static fj.data.Set.empty;
+import static java.lang.String.format;
 
-import java.io.*;
-import java.text.*;
-import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Map;
+import java.util.TimeZone;
 import java.util.TreeMap;
+
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugin.MojoFailureException;
+import org.apache.maven.plugin.logging.Log;
+import org.apache.maven.project.MavenProject;
+import org.apache.maven.project.MavenProjectHelper;
+
+import com.stratio.mojo.unix.FileAttributes;
+import com.stratio.mojo.unix.MissingSettingException;
+import com.stratio.mojo.unix.PackageParameters;
+import com.stratio.mojo.unix.PackageVersion;
+import com.stratio.mojo.unix.UnixPackage;
+import com.stratio.mojo.unix.core.AssemblyOperation;
+import com.stratio.mojo.unix.core.UnixPlatform;
+import com.stratio.mojo.unix.io.fs.LocalFs;
+import com.stratio.mojo.unix.java.StringF;
+import com.stratio.mojo.unix.maven.plugin.AssemblyOp;
+import com.stratio.mojo.unix.maven.plugin.CopyDirectory;
+import com.stratio.mojo.unix.maven.plugin.Defaults;
+import com.stratio.mojo.unix.maven.plugin.MavenProjectWrapper;
+import com.stratio.mojo.unix.maven.plugin.Package;
+import com.stratio.mojo.unix.maven.plugin.PackagingFormat;
+import com.stratio.mojo.unix.maven.plugin.PackagingMojoParameters;
+import com.stratio.mojo.unix.maven.plugin.UnknownArtifactException;
+import com.stratio.mojo.unix.util.ScriptUtil;
+import com.stratio.mojo.unix.util.line.AbstractLineStreamWriter;
+
+import fj.F;
+import fj.P1;
+import fj.P2;
+import fj.P3;
+import fj.data.List;
+import fj.data.Option;
+import fj.data.Set;
 
 /**
  * Utility class encapsulating how to create a package. Used by all packaging Mojos.
@@ -256,7 +280,8 @@ public abstract class MojoHelper
                     // Package the stuff
                     // -----------------------------------------------------------------------
 
-                    String name = project.artifactId +
+                    //String name = project.artifactId +
+                    String name = project.outputFileName +
                         pakke.classifier.map( dashString ).orSome( "" ) +
                         "-" + unixPackage.getVersion().getMavenVersion() +
                         "." + unixPackage.getPackageFileExtension();

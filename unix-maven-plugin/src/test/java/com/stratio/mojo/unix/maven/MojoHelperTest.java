@@ -24,25 +24,34 @@
  * SOFTWARE.
  */
 
-import fj.data.List;
-import static fj.data.List.*;
-import fj.data.*;
-import static fj.data.Option.*;
-import junit.framework.*;
-import org.apache.maven.artifact.*;
-import org.apache.maven.model.*;
-import org.apache.maven.plugin.*;
-import com.stratio.mojo.unix.*;
-import com.stratio.mojo.unix.core.*;
-import static com.stratio.mojo.unix.maven.MojoHelper.*;
-import com.stratio.mojo.unix.maven.plugin.*;
-import com.stratio.mojo.unix.maven.plugin.Package;
-import com.stratio.mojo.unix.util.*;
-import static com.stratio.mojo.unix.util.UnixUtil.*;
-import org.joda.time.*;
+import static com.stratio.mojo.unix.maven.MojoHelper.calculatePackageParameters;
+import static com.stratio.mojo.unix.util.UnixUtil.optionEquals;
+import static fj.data.List.list;
+import static fj.data.List.single;
+import static fj.data.Option.fromNull;
+import static fj.data.Option.some;
 
-import java.util.*;
+import java.util.Collections;
 import java.util.Set;
+
+import org.apache.maven.artifact.Artifact;
+import org.apache.maven.model.License;
+import org.apache.maven.plugin.MojoFailureException;
+import org.joda.time.LocalDateTime;
+
+import com.stratio.mojo.unix.PackageParameters;
+import com.stratio.mojo.unix.PackageVersion;
+import com.stratio.mojo.unix.core.SolarisUnixPlatform;
+import com.stratio.mojo.unix.maven.plugin.AssemblyOp;
+import com.stratio.mojo.unix.maven.plugin.Defaults;
+import com.stratio.mojo.unix.maven.plugin.MavenProjectWrapper;
+import com.stratio.mojo.unix.maven.plugin.Package;
+import com.stratio.mojo.unix.maven.plugin.PackagingMojoParameters;
+import com.stratio.mojo.unix.util.UnixUtil;
+
+import fj.data.List;
+import fj.data.Option;
+import junit.framework.TestCase;
 
 /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
@@ -203,7 +212,7 @@ public class MojoHelperTest
 
         PackageVersion version = PackageVersion.packageVersion( "1.0", "123456.123456", false, Option.<String>none() );
 
-        MavenProjectWrapper mavenProject = new MavenProjectWrapper( "groupId", "artifactId", "1.0", null, projectName,
+        MavenProjectWrapper mavenProject = new MavenProjectWrapper( "groupId", "artifactId","artifactId", "1.0", null, projectName,
                                                                     null, null, null, new LocalDateTime(), artifactSet,
                                                                     licenses,
                                                                     new MavenProjectWrapper.ArtifactMap( artifactSet ),
