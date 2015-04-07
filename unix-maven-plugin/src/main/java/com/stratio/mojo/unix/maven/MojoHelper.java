@@ -280,11 +280,13 @@ public abstract class MojoHelper
                     // Package the stuff
                     // -----------------------------------------------------------------------
 
-                    //String name = project.artifactId +
+                   //String name = project.artifactId +
                     String name = project.outputFileName +
                         pakke.classifier.map( dashString ).orSome( "" ) +
                         "-" + unixPackage.getVersion().getMavenVersion() +
                         "." + unixPackage.getPackageFileExtension();
+                    if(unixPackage.getPackageFileExtension().equals("rpm"))name=name.replace('-','_');
+
 
                     File packageFile = new File( project.buildDirectory, name );
 
