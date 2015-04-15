@@ -354,7 +354,10 @@ public abstract class MojoHelper
             public String _1()
             {
                 // This used to be ${groupId}-${artifactId}, but it was too long for pkg so this is a more sane default
-                return project.artifactId + pakke.classifier.map( dashString ).orSome( "" );
+                if(project.outputFileName.isEmpty())
+                    return project.artifactId + pakke.classifier.map( dashString ).orSome( "" );
+                else
+                    return project.outputFileName;
             }
         } );
 
