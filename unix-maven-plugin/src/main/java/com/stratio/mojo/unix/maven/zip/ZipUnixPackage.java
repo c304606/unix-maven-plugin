@@ -231,4 +231,9 @@ public class ZipUnixPackage
 
         return basicPackageFSO( file, f );
     }
+
+    @Override
+    public String getArchitecture() {
+        return "";
+    }
 }

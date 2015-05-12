@@ -111,4 +111,6 @@ public abstract class UnixPackage<UP extends UnixPackage<UP, PP>, PP extends Uni
         public abstract void packageToFile( File packageFile )
             throws Exception;
     }
+
+    public abstract String getArchitecture();
 }

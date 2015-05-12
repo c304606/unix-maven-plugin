@@ -48,6 +48,10 @@ public class CopyDirectory
         this.from = from;
     }
 
+    public File getFrom(){
+        return from;
+    }
+
     public AssemblyOperation createOperation( CreateOperationContext context )
         throws MojoFailureException
     {

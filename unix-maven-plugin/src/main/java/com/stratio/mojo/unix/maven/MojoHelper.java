@@ -47,6 +47,7 @@ import java.util.Map;
 import java.util.TimeZone;
 import java.util.TreeMap;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.artifact.Artifact;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
@@ -283,10 +284,16 @@ public abstract class MojoHelper
                     String version = unixPackage.getVersion().getMavenVersion();
                     if(unixPackage.getPackageFileExtension().equals("rpm"))version=version.replace('-','_');
                    //String name = project.artifactId +
+
+                    String architecture ="";
+                    if (StringUtils.isNotEmpty(unixPackage.getArchitecture())){
+                        architecture = unixPackage.getArchitecture() + ".";
+                    }
+
                     String name = project.outputFileName +
                         pakke.classifier.map( dashString ).orSome( "" ) +
                         "-" + version +
-                        "." + unixPackage.getPackageFileExtension();
+                        "." + architecture + unixPackage.getPackageFileExtension();
 
 
                     File packageFile = new File( project.buildDirectory, name );
@@ -368,12 +375,12 @@ public abstract class MojoHelper
 
         String name = pakke.name.orElse( mojoParameters.name ).orSome( project.name );
         return packageParameters( project.groupId, project.artifactId, version, id, name, pakke.classifier, defaultFileAttributes._1(), defaultFileAttributes._2() ).
-            description( pakke.description.orElse( mojoParameters.description ).orElse( project.description ) ).
-            contact( mojoParameters.contact ).
-            size( mojoParameters.size).
-            contactEmail( mojoParameters.contactEmail ).
-            license( getLicense( project ) ).
-            architecture( pakke.architecture.orElse( mojoParameters.architecture ) );
+            description(pakke.description.orElse(mojoParameters.description).orElse(project.description)).
+            contact(mojoParameters.contact).
+            size(mojoParameters.size).
+            contactEmail(mojoParameters.contactEmail).
+            license(getLicense(project)).
+            architecture(pakke.architecture.orElse(mojoParameters.architecture));
     }
 
     public static P2<FileAttributes, FileAttributes> calculateDefaultFileAttributes( UnixPlatform platform,

@@ -286,4 +286,9 @@ public class PkgUnixPackage
 
         return tmpFile;
     }
+
+    @Override
+    public String getArchitecture() {
+        return "";
+    }
 }

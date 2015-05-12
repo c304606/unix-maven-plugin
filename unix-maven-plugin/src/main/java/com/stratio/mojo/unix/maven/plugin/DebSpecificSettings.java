@@ -102,4 +102,5 @@ public class DebSpecificSettings
     {
         this.dpkgDeb = fromNull( dpkgDeb );
     }
+
 }

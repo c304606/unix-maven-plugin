@@ -176,6 +176,11 @@ public class DebUnixPackage
         return new DebPreparedPackage( result );
     }
 
+    @Override
+    public String getArchitecture() {
+        return this.controlFile.architecture.some();
+    }
+
     public class DebPreparedPackage
         extends UnixPackage.PreparedPackage
     {
@@ -286,4 +291,6 @@ public class DebUnixPackage
 
         return v + "~" + version.timestamp + "-" + r;
     }
+
+
 }

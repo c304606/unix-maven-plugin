@@ -74,7 +74,7 @@ public class PackageParameters
                               FileAttributes defaultFileAttributes, FileAttributes defaultDirectoryAttributes,
                               Option<String> classifier, Option<String> description, Option<String> contact,
                               Option<String> size,
-                              Option<String> contactEmail, Option<String> license, Option<String> architecture )
+                              Option<String> contactEmail, Option<String> license, Option<String> architecture)
     {
         validateNotNull( groupId, artifactId, version, id, name, defaultFileAttributes, defaultDirectoryAttributes,
             classifier, description, contact,size, contactEmail, license, architecture );
@@ -107,14 +107,14 @@ public class PackageParameters
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, Option.<String>none(), Option.<String>none(),
                                       Option.<String>none(),
-                                      Option.<String>none(), Option.<String>none(), Option.<String>none() );
+                                      Option.<String>none(), Option.<String>none(), Option.<String>none());
     }
 
     public PackageParameters name( String name )
     {
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
-                                      license, architecture );
+                                      license, architecture);
     }
 
     public PackageParameters description( String description )
@@ -126,36 +126,36 @@ public class PackageParameters
     {
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
-                                      license, architecture );
+                                      license, architecture);
     }
 
     public PackageParameters contact( String contact )
     {
-        return contact( fromNull( contact ) );
+        return contact(fromNull(contact));
     }
 
     public PackageParameters contact( Option<String> contact )
     {
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
-                                      license, architecture );
+                                      license, architecture);
     }
 
     public PackageParameters size( String size )
     {
-        return size( fromNull( size ) );
+        return size(fromNull(size));
     }
 
     public PackageParameters size( Option<String> size )
     {
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
-                                      license, architecture );
+                                      license, architecture);
     }
 
     public PackageParameters contactEmail( String contactEmail )
     {
-        return contactEmail( fromNull( contactEmail ) );
+        return contactEmail(fromNull(contactEmail));
     }
 
     public PackageParameters contactEmail( Option<String> contactEmail )
@@ -167,19 +167,19 @@ public class PackageParameters
 
     public PackageParameters license( String license )
     {
-        return license( fromNull( license ) );
+        return license(fromNull(license));
     }
 
     public PackageParameters license( Option<String> license )
     {
         return new PackageParameters( groupId, artifactId, version, id, name, defaultFileAttributes,
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
-                                      license, architecture );
+                                      license, architecture);
     }
 
     public PackageParameters architecture( String architecture )
     {
-        return architecture( fromNull( architecture ) );
+        return architecture(fromNull(architecture));
     }
 
     public PackageParameters architecture( Option<String> architecture )
@@ -188,4 +188,5 @@ public class PackageParameters
                                       defaultDirectoryAttributes, classifier, description, contact,size, contactEmail,
                                       license, architecture );
     }
+
 }

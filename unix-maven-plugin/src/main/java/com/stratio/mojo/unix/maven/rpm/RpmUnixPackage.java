@@ -39,8 +39,9 @@ import static org.codehaus.plexus.util.FileUtils.forceMkdir;
 import org.joda.time.*;
 
 import java.io.*;
+import java.util.Arrays;
 
-/**
+ /**
  * @author <a href="mailto:trygvis@inamo.no">Trygve Laugst&oslash;l</a>
  */
 public class RpmUnixPackage
@@ -82,8 +83,9 @@ public class RpmUnixPackage
         return this;
     }
 
-    public RpmUnixPackage rpmParameters( String group, Option<String> rpmbuild )
+    public RpmUnixPackage rpmParameters( String group, Option<String> rpmbuild, String requires)
     {
+        specFile.requires = List.single(requires);
         specFile.group = group;
         this.rpmbuild = rpmbuild;
         return this;
@@ -227,5 +229,10 @@ public class RpmUnixPackage
         }
 
         return p(v.replace('-', '_'), r);
+    }
+
+    @Override
+    public String getArchitecture() {
+        return this.specFile.buildArch;
     }
 }

@@ -38,6 +38,8 @@ public class RpmSpecificSettings
 
     public Option<String> rpmbuild = none();
 
+    public Option<String> requires = none();
+
     public void setGroup( String group )
     {
         this.group = fromNull( group );
@@ -46,6 +48,10 @@ public class RpmSpecificSettings
     public void setRpmbuild( String rpmbuild )
     {
         this.rpmbuild = fromNull( rpmbuild );
+    }
+
+    public void setRequires(String requires) {
+        this.requires = fromNull(requires);
     }
 
     public String toString()

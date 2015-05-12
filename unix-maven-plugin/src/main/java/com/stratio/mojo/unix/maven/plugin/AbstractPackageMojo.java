@@ -24,7 +24,9 @@
  * SOFTWARE.
  */
 
+import com.stratio.mojo.unix.util.FolderUtils;
 import fj.*;
+import org.apache.commons.lang.StringUtils;
 import org.apache.maven.plugin.*;
 import com.stratio.mojo.unix.*;
 import com.stratio.mojo.unix.maven.*;
@@ -65,6 +67,17 @@ public abstract class AbstractPackageMojo<UP extends UnixPackage<UP, PP>, PP ext
     public final void execute()
         throws MojoExecutionException, MojoFailureException
     {
+
+        if (StringUtils.isBlank(size)){
+            int realSize = 0;
+            for(AssemblyOp assemblyOp:assembly){
+                if (assemblyOp instanceof CopyDirectory){
+                    realSize +=FolderUtils.folderSize(((CopyDirectory)assemblyOp).getFrom());
+                }
+            }
+            size = Integer.toString(realSize/1024);
+        }
+
         MojoHelper.create( platforms,
                            platformType,
                            formatType,

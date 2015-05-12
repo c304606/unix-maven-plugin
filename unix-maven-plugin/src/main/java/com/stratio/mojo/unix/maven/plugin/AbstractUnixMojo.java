@@ -103,6 +103,11 @@ public abstract class AbstractUnixMojo
     protected String architecture;
 
     /**
+     * Comma separated package requires
+     */
+    protected String requires;
+
+    /**
      * Enabled extra debugging informasjon.
      *
      * @parameter property="maven.unix.debug" default="false"

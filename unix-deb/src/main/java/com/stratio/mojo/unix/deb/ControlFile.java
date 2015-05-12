@@ -136,6 +136,7 @@ public class ControlFile
 
     public ControlFile architecture( Option<String> architecture )
     {
+
         return new ControlFile( packageName, version, description, maintainer,installedSize, architecture, priority,
                 section, depends,
                                 recommends, suggests, preDepends, provides, replaces, conflicts, extraFields );

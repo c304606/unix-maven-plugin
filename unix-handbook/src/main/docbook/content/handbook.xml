@@ -772,6 +772,25 @@
               <entry>A default value indicating that the package is
               architecture independent is used if applicable.</entry>
             </row>
+
+            <row>
+              <entry><literal>requires</literal></entry>
+
+              <entry>N</entry>
+
+              <entry><orderedlist>
+                <listitem>
+                  <para><literal>mojo.requires</literal></para>
+                </listitem>
+
+                <listitem>
+                  <para><literal>format.requires</literal></para>
+                </listitem>
+              </orderedlist></entry>
+
+              <entry>Package requirements</entry>
+            </row>
+
           </tbody>
         </tgroup>
       </informaltable>
