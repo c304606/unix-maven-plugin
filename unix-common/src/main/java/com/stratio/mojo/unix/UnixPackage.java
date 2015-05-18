@@ -113,4 +113,6 @@ public abstract class UnixPackage<UP extends UnixPackage<UP, PP>, PP extends Uni
     }
 
     public abstract String getArchitecture();
+
+    public abstract String getOutputFileName();
 }

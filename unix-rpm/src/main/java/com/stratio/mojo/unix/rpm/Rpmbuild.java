@@ -90,7 +90,7 @@ public class Rpmbuild
 
         SystemCommand command = new SystemCommand().
             setBasedir( new File( "/" ) ).
-            dumpCommandIf( debug ).
+            dumpCommandIf( true ).
             withStderrConsumer( out ).
             withStdoutConsumer( out ).
             setCommand( rpmbuild() ).
@@ -111,11 +111,20 @@ public class Rpmbuild
                 addArgument( define );
         }
 
-        SystemCommand.ExecutionResult result = command.
-            execute();
+        SystemCommand.ExecutionResult result = command.execute();
+
+
+
 
         if ( debug )
         {
+
+            OutputStreamWriter logsOut = new OutputStreamWriter(new FileOutputStream(buildroot.getParentFile().getAbsolutePath() +"/build.log", true));
+            logsOut.write(result.command + " output:" );
+            logsOut.write(out.toString());
+
+            logsOut.close();
+
             System.out.println( "------------------------------------------------------" );
             System.out.println( result.command + " output:" );
             System.out.println( out );

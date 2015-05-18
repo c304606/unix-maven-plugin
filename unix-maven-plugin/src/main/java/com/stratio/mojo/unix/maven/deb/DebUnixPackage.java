@@ -72,7 +72,7 @@ public class DebUnixPackage
 
     public DebUnixPackage parameters( PackageParameters parameters )
     {
-        controlFile = new ControlFile( parameters.id ).
+        controlFile = new ControlFile( parameters.outputFileName.orSome(parameters.id)).
             version( some( getDebianVersion( parameters.version ) ) ).
             description( getDescription( parameters ) ).
             maintainer( parameters.contact ).
@@ -179,6 +179,11 @@ public class DebUnixPackage
     @Override
     public String getArchitecture() {
         return this.controlFile.architecture.some();
+    }
+
+    @Override
+    public String getOutputFileName() {
+        return this.controlFile.packageName;
     }
 
     public class DebPreparedPackage

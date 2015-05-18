@@ -46,6 +46,7 @@ public class PackagingMojoParameters
     public final Defaults defaults;
     public final List<AssemblyOp> assembly;
     public final List<Package> packages;
+    public final Option<String> outputFileName;
 
     public PackagingMojoParameters( String name,
                                     String revision,
@@ -56,7 +57,8 @@ public class PackagingMojoParameters
                                     String architecture,
                                     Defaults defaults,
                                     AssemblyOp[] assembly,
-                                    Package[] packages )
+                                    Package[] packages,
+                                    String outputFileName)
     {
         validateNotNull( defaults );
         this.name = fromNull( name );
@@ -69,5 +71,6 @@ public class PackagingMojoParameters
         this.defaults = defaults;
         this.assembly = assembly == null ? List.<AssemblyOp>nil() : list( assembly );
         this.packages = packages == null ? List.<Package>nil() : list( packages );
+        this.outputFileName= fromNull( outputFileName );
     }
 }

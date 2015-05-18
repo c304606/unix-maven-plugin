@@ -139,4 +139,12 @@ public abstract class AbstractUnixMojo
      * @component
      */
     protected MavenProjectHelper mavenProjectHelper;
+
+    /**
+     * The size of the package.
+     *
+     * @parameter
+     */
+    protected String outputFileName;
+
 }

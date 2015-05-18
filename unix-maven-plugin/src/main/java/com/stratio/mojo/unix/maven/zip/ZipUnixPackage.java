@@ -236,4 +236,9 @@ public class ZipUnixPackage
     public String getArchitecture() {
         return "";
     }
+
+    @Override
+    public String getOutputFileName() {
+        return ""; //TODO Add name
+    }
 }

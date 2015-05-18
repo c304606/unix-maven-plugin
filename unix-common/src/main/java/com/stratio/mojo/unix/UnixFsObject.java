@@ -196,7 +196,7 @@ public abstract class UnixFsObject<A extends UnixFsObject>
             " " + attributes.group.map( leftPad10 ).orSome( " <unknown>" ) +
             " " + p( String.valueOf( size ) ).map( rightPad10 )._1() +
             " " + p( lastModified ).map( formatter )._1() +
-            " " + path.string;
+            " " + path.string + "\"";
     }
 
     // -----------------------------------------------------------------------

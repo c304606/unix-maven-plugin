@@ -282,7 +282,9 @@ public abstract class MojoHelper
                     // -----------------------------------------------------------------------
 
                     String version = unixPackage.getVersion().getMavenVersion();
+
                     if(unixPackage.getPackageFileExtension().equals("rpm"))version=version.replace('-','_');
+
                    //String name = project.artifactId +
 
                     String architecture ="";
@@ -290,7 +292,14 @@ public abstract class MojoHelper
                         architecture = unixPackage.getArchitecture() + ".";
                     }
 
-                    String name = project.outputFileName +
+                    String baseName = null;
+                    if (StringUtils.isNotEmpty(unixPackage.getOutputFileName())){
+                        baseName=unixPackage.getOutputFileName();
+                    }else{
+                        baseName=project.outputFileName;
+                    }
+
+                    String name = baseName +
                         pakke.classifier.map( dashString ).orSome( "" ) +
                         "-" + version +
                         "." + architecture + unixPackage.getPackageFileExtension();
@@ -353,7 +362,7 @@ public abstract class MojoHelper
     public static PackageParameters calculatePackageParameters( final MavenProjectWrapper project,
                                                                 PackageVersion version,
                                                                 UnixPlatform platform,
-                                                                PackagingMojoParameters mojoParameters,
+                                                                final PackagingMojoParameters mojoParameters,
                                                                 final Package pakke )
     {
         String id = pakke.id.orSome( new P1<String>()
@@ -361,10 +370,10 @@ public abstract class MojoHelper
             public String _1()
             {
                 // This used to be ${groupId}-${artifactId}, but it was too long for pkg so this is a more sane default
-                if(project.outputFileName.isEmpty())
+                if(mojoParameters.outputFileName.orSome("").isEmpty())
                     return project.artifactId + pakke.classifier.map( dashString ).orSome( "" );
                 else
-                    return project.outputFileName;
+                    return mojoParameters.outputFileName.some();
             }
         } );
 

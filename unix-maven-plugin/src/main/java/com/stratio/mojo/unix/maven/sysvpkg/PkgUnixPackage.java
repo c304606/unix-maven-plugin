@@ -91,7 +91,7 @@ public class PkgUnixPackage
             email( parameters.contactEmail ).
             size(parameters.size).
             pstamp( some( parameters.version.timestamp ) ).
-            email( parameters.contactEmail );
+            outputFileName( parameters.outputFileName);
 
         return this;
     }
@@ -290,5 +290,10 @@ public class PkgUnixPackage
     @Override
     public String getArchitecture() {
         return "";
+    }
+
+    @Override
+    public String getOutputFileName() {
+        return ""; //TODO Add name
     }
 }

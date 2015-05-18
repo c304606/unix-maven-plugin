@@ -58,9 +58,10 @@ public class Pkginfo
     public final Option<String> email;
     public final Option<String> size;
     public final List<String> classes;
+    public final Option<String> outputFileName;
 
     public Pkginfo( String arch, String category, String name, String pkg, String version, Option<String> pstamp,
-                    Option<String> desc, Option<String> email, Option<String> size, List<String> classes )
+                    Option<String> desc, Option<String> email, Option<String> size, List<String> classes, Option<String> outputFileName )
     {
         this.arch = arch;
         this.category = category;
@@ -72,12 +73,13 @@ public class Pkginfo
         this.email = email;
         this.size= size;
         this.classes = classes;
+        this.outputFileName = outputFileName;
     }
 
     public Pkginfo( String arch, String category, String name, String pkg, String version )
     {
         this( arch, category, name, pkg, version, Option.<String>none(), Option.<String>none(),
-              Option.<String>none(),Option.<String>none(), List.<String>nil() );
+              Option.<String>none(),Option.<String>none(), List.<String>nil(),Option.<String>none() );
     }
 
     public static final F5<String, String, String, String, String, Pkginfo> constructor =
@@ -91,32 +93,37 @@ public class Pkginfo
 
     public Pkginfo category( String category )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
     }
 
     public Pkginfo pstamp( Option<String> pstamp )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
     }
 
     public Pkginfo desc( Option<String> desc )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
     }
 
     public Pkginfo email( Option<String> email )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
     }
 
     public Pkginfo size(Option<String> size)
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
     }
 
     public Pkginfo classes( List<String> classes )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email,size, classes );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email,size, classes, outputFileName );
+    }
+
+    public Pkginfo outputFileName(Option<String> outputFileName)
+    {
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName);
     }
 
     public List<String> toList()
