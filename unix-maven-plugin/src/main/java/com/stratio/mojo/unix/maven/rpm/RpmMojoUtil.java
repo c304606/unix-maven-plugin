@@ -41,6 +41,6 @@ public class RpmMojoUtil
         }
 
         return unixPackage.
-            rpmParameters( rpm.group.some(), rpm.rpmbuild, rpm.requires.some() );
+            rpmParameters( rpm.group.some(), rpm.rpmbuild, rpm.requires.toNull() );
     }
 }
