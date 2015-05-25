@@ -109,13 +109,13 @@ public class SpecFileTest
             add( "%files" ).
             add( "%doc %attr(0644,myuser,mygroup) /a" ).
             add( "%config %attr(0644,myuser,mygroup) /b" ).
-            add( "%dir %attr(-,myuser,mygroup) /bin" ).
+            add("").
             add( "%config(missingok) %attr(0644,myuser,mygroup) /c" ).
             add( "%config(noreplace) %attr(0644,myuser,mygroup) /d" ).
             add( "%ghost %attr(0644,myuser,mygroup) /e" ).
             add( "%attr(0644,myuser,mygroup) /extract.jar" ).
             add( "%attr(0644,extract,mygroup) /extract2.jar" ).
-            add( "%dir %attr(-,root,root) /usr" ).
+            add( "" ).
             add( "%dir %attr(0755,myuser,mygroup) /usr/bin" ).
             toString(), toString( specFile ) );
     }

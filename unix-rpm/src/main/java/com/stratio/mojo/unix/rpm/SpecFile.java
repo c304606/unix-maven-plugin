@@ -57,6 +57,19 @@ import java.util.*;
 public class SpecFile
     implements LineProducer
 {
+
+    private static final java.util.List<String> excludedSysPaths  = new ArrayList();
+
+    static{
+        excludedSysPaths.add("/etc");
+        excludedSysPaths.add("/etc/default");
+        excludedSysPaths.add("/var");
+        excludedSysPaths.add("/opt");
+        excludedSysPaths.add("/usr");
+        excludedSysPaths.add("/bin");
+
+    }
+
     public String version;
 
     public String release;
@@ -229,6 +242,10 @@ public class SpecFile
                     attributes.user.orSome( "-" ) + "," +
                     attributes.group.orSome( "-" ) + ") ";
 
+                // UGLY but works
+                if (ignorePath(unixFsObject.path.asAbsolutePath("/"))){
+                    return "";
+                }
                 s += unixFsObject.path.asAbsolutePath( "/" );
 
                 if ( unixFsObject instanceof UnixFsObject.RegularFile || unixFsObject instanceof UnixFsObject.Symlink )
@@ -242,6 +259,11 @@ public class SpecFile
 
                 throw error( "Unknown type UnixFsObject type: " + unixFsObject );
             }
+
+            private boolean ignorePath(String s) {
+                return excludedSysPaths.contains(s);
+            }
+
         };
     }
 
