@@ -71,7 +71,7 @@ public class RpmUnixPackageTest
             contact( "Kurt Cobain" ).
             architecture( "noarch" ).
             name( "Yo!" ).
-            license( "BSD" );
+            license( "BSD" ).excludeDirs(List.<String>nil());
 
         RpmUnixPackage unixPackage = packagingFormat.start( new SystemStreamLog() ).
             parameters( parameters ).

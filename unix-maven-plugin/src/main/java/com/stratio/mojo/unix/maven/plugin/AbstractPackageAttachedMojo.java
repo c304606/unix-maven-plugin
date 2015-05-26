@@ -74,7 +74,8 @@ public abstract class AbstractPackageAttachedMojo<UP extends UnixPackage<UP, PP>
                                                         defaults,
                                                         assembly,
                                                         null,
-                                                        outputFileName),
+                                                        outputFileName,
+                                                        excludeDirs),
                            getLog() ).
             execute( artifactType, project, mavenProjectHelper, MULTIPLE );
     }

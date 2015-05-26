@@ -47,6 +47,7 @@ public class PackagingMojoParameters
     public final List<AssemblyOp> assembly;
     public final List<Package> packages;
     public final Option<String> outputFileName;
+    public final List<String> excludeDirs;
 
     public PackagingMojoParameters( String name,
                                     String revision,
@@ -58,7 +59,8 @@ public class PackagingMojoParameters
                                     Defaults defaults,
                                     AssemblyOp[] assembly,
                                     Package[] packages,
-                                    String outputFileName)
+                                    String outputFileName,
+                                    String[] excludeDirs)
     {
         validateNotNull( defaults );
         this.name = fromNull( name );
@@ -72,5 +74,6 @@ public class PackagingMojoParameters
         this.assembly = assembly == null ? List.<AssemblyOp>nil() : list( assembly );
         this.packages = packages == null ? List.<Package>nil() : list( packages );
         this.outputFileName= fromNull( outputFileName );
+        this.excludeDirs = excludeDirs == null ? List.<String>nil() : list( excludeDirs );
     }
 }

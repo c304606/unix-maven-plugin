@@ -79,6 +79,10 @@ public class RpmUnixPackage
         specFile.version = rpmVersion._1();
         specFile.release = rpmVersion._2();
 
+        //todo
+        SpecFile.excludedSysPaths.addAll(parameters.excludeDirs.toCollection());
+
+
         return this;
     }
 

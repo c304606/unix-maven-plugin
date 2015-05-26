@@ -389,7 +389,7 @@ public abstract class MojoHelper
             size(mojoParameters.size).
             contactEmail(mojoParameters.contactEmail).
             license(getLicense(project)).
-            architecture(pakke.architecture.orElse(mojoParameters.architecture));
+            architecture(pakke.architecture.orElse(mojoParameters.architecture)).excludeDirs(mojoParameters.excludeDirs);
     }
 
     public static P2<FileAttributes, FileAttributes> calculateDefaultFileAttributes( UnixPlatform platform,

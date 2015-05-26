@@ -72,7 +72,8 @@ public class SpecFileTest
         throws Exception
     {
         SpecFile specFile = testSpecFile();
-
+        SpecFile.excludedSysPaths.add("/bin");
+        SpecFile.excludedSysPaths.add("/usr");
         Option<String> mygroup = some( "mygroup" );
         Option<String> myuser = Option.some( "myuser" );
 

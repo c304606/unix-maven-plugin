@@ -220,7 +220,7 @@ public class MojoHelperTest
 
         PackagingMojoParameters mojoParameters = new PackagingMojoParameters( mojoName, null, "Description", "A B",
                                                                               "1024","a@b.com", "all", new Defaults(),
-                                                                              new AssemblyOp[0], new Package[0], "filename" );
+                                                                              new AssemblyOp[0], new Package[0], "filename", new String[]{"/etc"} );
 
         Package pakke = new Package();
         pakke.id = fromNull( packageName );

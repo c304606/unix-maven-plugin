@@ -39,7 +39,7 @@ public class UnixPackageTestUtil<UP extends UnixPackage<UP, PP>, PP extends Unix
                            EMPTY, EMPTY ).
             contact( "Kurt Cobain" ).
             architecture( "all" ).
-            license( "BSD" );
+            license( "BSD" ).excludeDirs(List.<String>nil());
 
     public UnixPackageTestUtil( String id, PackagingFormat<UP> packagingFormat )
     {

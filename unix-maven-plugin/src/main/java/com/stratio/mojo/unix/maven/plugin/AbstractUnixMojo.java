@@ -147,4 +147,11 @@ public abstract class AbstractUnixMojo
      */
     protected String outputFileName;
 
+
+    /**
+     * Exclude this directories from RPM SPECT
+     * @parameter
+     */
+    protected String[] excludeDirs;
+
 }

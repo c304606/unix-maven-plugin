@@ -58,17 +58,10 @@ public class SpecFile
     implements LineProducer
 {
 
-    private static final java.util.List<String> excludedSysPaths  = new ArrayList();
-
-    static{
-        excludedSysPaths.add("/etc");
-        excludedSysPaths.add("/etc/default");
-        excludedSysPaths.add("/var");
-        excludedSysPaths.add("/opt");
-        excludedSysPaths.add("/usr");
-        excludedSysPaths.add("/bin");
-
-    }
+    /*
+    Really ugly...
+     */
+    public static java.util.List<String> excludedSysPaths  = new ArrayList();
 
     public String version;
 
@@ -242,7 +235,7 @@ public class SpecFile
                     attributes.user.orSome( "-" ) + "," +
                     attributes.group.orSome( "-" ) + ") ";
 
-                // UGLY but works
+                // UGLY but works TODO fixit
                 if (ignorePath(unixFsObject.path.asAbsolutePath("/"))){
                     return "";
                 }

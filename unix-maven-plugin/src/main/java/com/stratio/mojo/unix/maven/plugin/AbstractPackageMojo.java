@@ -95,7 +95,8 @@ public abstract class AbstractPackageMojo<UP extends UnixPackage<UP, PP>, PP ext
                                                         defaults,
                                                         assembly,
                                                         packages,
-                                                        outputFileName ),
+                                                        outputFileName,
+                                                        excludeDirs ),
                            getLog() ).
             execute( artifactType, project, mavenProjectHelper, SINGLE );
     }
