@@ -159,8 +159,8 @@ public class SpecFile
             spec.add( "%define " + defineStatement );
         }
 
-        UnixUtil.assertField( "version", version );
-        UnixUtil.assertField( "release", release );
+        UnixUtil.assertField("version", version);
+        UnixUtil.assertField("release", release);
 
         spec.
             add( "Name: " + name ).
@@ -171,9 +171,11 @@ public class SpecFile
             addIfNotEmpty( "Distribution: ", distribution ).
             add( "Group: " + UnixUtil.getField( "group", group ) ).
             addIfNotEmpty( "Packager: ", packager ).
-            addAllLines( prefix( provides, "Provides: " ) ).
-            addAllLines( prefix( requires, "Requires: " ) ).
-            addAllLines( prefix( conflicts, "Conflicts: " ) ).
+            addAllLines(prefix(provides, "Provides: "));
+
+            spec.addAllLines(prefix(requires, "Requires: "));
+
+            spec. addAllLines(prefix(conflicts, "Conflicts: " ) ).
             addIfNotEmpty( fromNull( buildRoot ).map( compose( curry( concat, "BuildRoot: " ), getAbsolutePath ) ).orSome( "" ) ).
             add( "BuildArch: " + buildArch ).
             add();
