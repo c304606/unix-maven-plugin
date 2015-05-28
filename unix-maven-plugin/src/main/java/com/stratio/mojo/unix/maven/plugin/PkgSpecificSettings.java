@@ -38,6 +38,8 @@ public class PkgSpecificSettings
     public List<String> classes = nil();
 
     public Option<String> category = none();
+    
+    public Option<String> maxinst = none();
 
     private String[] extraPrototype = new String[0];
 
@@ -46,6 +48,11 @@ public class PkgSpecificSettings
         this.classes = list( classes.split( "," ) ).map( trim );
     }
 
+    public void setMaxinst( String maxinst )
+    {
+        this.maxinst = fromNull( maxinst );
+    }
+    
     public void setCategory( String category )
     {
         this.category = fromNull( category );
