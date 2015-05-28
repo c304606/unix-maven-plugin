@@ -57,11 +57,12 @@ public class Pkginfo
     public final Option<String> desc;
     public final Option<String> email;
     public final Option<String> size;
+    public final Option<String> maxinst;
     public final List<String> classes;
     public final Option<String> outputFileName;
 
     public Pkginfo( String arch, String category, String name, String pkg, String version, Option<String> pstamp,
-                    Option<String> desc, Option<String> email, Option<String> size, List<String> classes, Option<String> outputFileName )
+                    Option<String> desc, Option<String> email, Option<String> size, Option<String> maxinst, List<String> classes, Option<String> outputFileName )
     {
         this.arch = arch;
         this.category = category;
@@ -72,6 +73,7 @@ public class Pkginfo
         this.desc = desc;
         this.email = email;
         this.size= size;
+        this.maxinst= maxinst;
         this.classes = classes;
         this.outputFileName = outputFileName;
     }
@@ -79,7 +81,7 @@ public class Pkginfo
     public Pkginfo( String arch, String category, String name, String pkg, String version )
     {
         this( arch, category, name, pkg, version, Option.<String>none(), Option.<String>none(),
-              Option.<String>none(),Option.<String>none(), List.<String>nil(),Option.<String>none() );
+              Option.<String>none(),Option.<String>none(),Option.<String>none(), List.<String>nil(),Option.<String>none() );
     }
 
     public static final F5<String, String, String, String, String, Pkginfo> constructor =
@@ -93,37 +95,37 @@ public class Pkginfo
 
     public Pkginfo category( String category )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName );
     }
 
     public Pkginfo pstamp( Option<String> pstamp )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName );
     }
 
     public Pkginfo desc( Option<String> desc )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName );
     }
 
     public Pkginfo email( Option<String> email )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName );
     }
 
     public Pkginfo size(Option<String> size)
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName );
     }
 
     public Pkginfo classes( List<String> classes )
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email,size, classes, outputFileName );
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst,  classes, outputFileName );
     }
 
     public Pkginfo outputFileName(Option<String> outputFileName)
     {
-        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size,classes, outputFileName);
+        return new Pkginfo( arch, category, name, pkg, version, pstamp, desc, email, size, maxinst, classes, outputFileName);
     }
 
     public List<String> toList()
@@ -141,6 +143,7 @@ public class Pkginfo
             cons( desc.map( curry( concat, "DESC=" ) ) ).
             cons( email.map( curry( concat, "EMAIL=" ) ) ).
             cons( size.map( curry( concat, "SIZE=" ) ) ).
+            cons( size.map( curry( concat, "MAXINST=" ) ) ).
             cons( iif( List.<String>isNotEmpty_(), classes ).map( stringF ) );
 
         return Option.somes( list ).reverse();
@@ -210,6 +213,7 @@ public class Pkginfo
                     desc( map2.get( "DESC" ) ).
                     email( map2.get( "EMAIL" ) ).
                     size( map2.get( "SIZE" ) ).
+                    size( map2.get( "MAXINST" ) ).
                     classes( map2.get( "CLASSES" ).map( flip( StringF.split ).f( "," ) ).orSome( List.<String>nil() ) );
             }
         } );
